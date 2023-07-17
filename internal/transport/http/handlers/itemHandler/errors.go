@@ -13,13 +13,13 @@ const (
 	UnexpectedInternalError = "unexpected internal error"
 )
 
-func unwrapErr(err error, target string) bool {
+func unwrapErr(err error, target error) bool {
 	for i := 0; i < 4; i++ {
 		if err == nil {
 			break
 		}
 		err = errors.Unwrap(err)
-		if err.Error() == target {
+		if err == target {
 			return true
 		}
 	}

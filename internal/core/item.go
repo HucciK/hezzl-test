@@ -13,3 +13,5 @@ type Item struct {
 	Removed     bool      `json:"removed,omitempty"`
 	CreatedAt   time.Time `json:"createdAt,omitempty"`
 }
+
+const ItemUpdateSubj = "items_update"

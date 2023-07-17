@@ -1,0 +1,6 @@
+error: error while trying to create item: error while trying to scan item query result: sql: Scan error on column index 1, name "campaign_id": converting NULL to int is unsupported
+error: strconv.Atoi: parsing "": invalid syntax
+error: strconv.Atoi: parsing "": invalid syntax
+error: error while trying to remove item: item not found
+error: error while trying to remove item: item not found
+error: error while trying to remove item: item not found

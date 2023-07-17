@@ -2,13 +2,8 @@ package itemRepository
 
 import (
 	"database/sql"
-	"errors"
 	"fmt"
 	"hezzl/internal/core"
-)
-
-var (
-	ItemNotFound = errors.New("item not found")
 )
 
 type ItemPostgres struct {
@@ -46,7 +41,7 @@ func (i ItemPostgres) GetItemById(id int) (core.Item, error) {
 	}
 
 	if item.Id == 0 {
-		return core.Item{}, ItemNotFound
+		return core.Item{}, core.ItemNotFound
 	}
 
 	return item, nil

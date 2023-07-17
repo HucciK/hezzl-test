@@ -132,7 +132,7 @@ func (i ItemService) sendEvent(item core.Item) error {
 		return fmt.Errorf("error while trying to marshal updated item: %w", err)
 	}
 
-	if err := i.MessageBroker.Publish("items_update", jsonData); err != nil {
+	if err := i.MessageBroker.Publish(core.ItemUpdateSubj, jsonData); err != nil {
 		return fmt.Errorf("error while trying to ")
 	}
 

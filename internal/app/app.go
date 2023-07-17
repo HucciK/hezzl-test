@@ -3,6 +3,7 @@ package app
 import (
 	"fmt"
 	"hezzl/config"
+	"hezzl/internal/core"
 	"hezzl/internal/repository/cache"
 	"hezzl/internal/repository/itemRepository"
 	"hezzl/internal/repository/logsRepository"
@@ -41,7 +42,6 @@ func (a App) Run() error {
 	if err != nil {
 		return fmt.Errorf("error while trying to create clickhouse instance: %w", err)
 	}
-	fmt.Println(a.config.ClickhouseConfig.ConnectionString())
 
 	redisCli, err := redis.NewRedisClient(a.config.RedisConfig)
 	if err != nil {
@@ -63,7 +63,7 @@ func (a App) Run() error {
 
 	router := http.NewServeMux()
 
-	_, err = broker.NewBroker("items_update", natsBroker, LogsService, a.logger)
+	_, err = broker.NewBroker(core.ItemUpdateSubj, natsBroker, LogsService, a.logger)
 	if err != nil {
 		return fmt.Errorf("error while trying to create broker transport instance: %w", err)
 	}

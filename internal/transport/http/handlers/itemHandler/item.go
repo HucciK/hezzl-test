@@ -122,7 +122,7 @@ func (i ItemHandler) updateItem(w http.ResponseWriter, r *http.Request) {
 	update, err = i.ItemService.UpdateItem(update)
 	if err != nil {
 		i.Logger.Printf("error: %v", err)
-		if unwrapErr(err, "item not found") {
+		if unwrapErr(err, core.ItemNotFound) {
 			w.Write(i.responseWithError(http.StatusNotFound, NotFound))
 			return
 		}
@@ -162,7 +162,7 @@ func (i ItemHandler) removeItem(w http.ResponseWriter, r *http.Request) {
 	item, err := i.ItemService.RemoveItem(id, campaignId)
 	if err != nil {
 		i.Logger.Printf("error: %v", err)
-		if unwrapErr(err, "item not found") {
+		if unwrapErr(err, core.ItemNotFound) {
 			w.Write(i.responseWithError(http.StatusNotFound, NotFound))
 			return
 		}
