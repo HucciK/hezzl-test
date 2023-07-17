@@ -1,0 +1,32 @@
+{
+  "server": {
+    "addr": ":8090",
+    "read_timeout": 10,
+    "write_timeout": 10
+  },
+  "postgres": {
+    "username": "postgres",
+    "password": "12345",
+    "host": "localhost",
+    "port": 5432,
+    "db_name": "hezzl",
+    "sslMode": "disable"
+  },
+  "clickhouse": {
+    "username": "default",
+    "password": "",
+    "host": "localhost",
+    "port": 8123,
+    "db_name": "default"
+  },
+  "redis": {
+    "addr": "localhost:6379",
+    "password": "",
+    "db": 0,
+    "ttl": 60
+  },
+  "nats":{
+    "url": "nats://127.0.0.1:4222"
+  },
+  "logFilePath": "./"
+}
