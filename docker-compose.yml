@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  clickhouse:
+    image: "clickhouse/clickhouse-server"
+    ports:
+      - 8123:8123
+
+  redis:
+    image: "redis"
+    ports:
+      - 6379:6379
+
+  nats:
+    image: "nats"
+    networks:
+      nats:
+    ports:
+      - 4222:4222
+
+networks:
+  nats:
