@@ -48,7 +48,7 @@ func (i ItemPostgres) GetItemById(id int) (core.Item, error) {
 }
 
 func (i ItemPostgres) GetAllItems() ([]core.Item, error) {
-	var allItems []core.Item
+	allItems := make([]core.Item, 0)
 
 	res, err := i.db.Query("SELECT * FROM items")
 	if err != nil {

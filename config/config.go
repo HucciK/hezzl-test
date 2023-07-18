@@ -52,7 +52,7 @@ type NatsConfig struct {
 func NewConfig() (Config, error) {
 	var config Config
 
-	data, err := os.ReadFile("../config/config.json")
+	data, err := os.ReadFile("./config/config.json")
 	if err != nil {
 		return config, fmt.Errorf("error while trying to read config file: %w", err)
 	}

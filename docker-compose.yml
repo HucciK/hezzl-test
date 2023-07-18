@@ -1,5 +1,17 @@
 version: "3.9"
 services:
+  postgres:
+    image: "postgres"
+    environment:
+      POSTGRES_PASSWORD: "12345"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "hezzl"
+      PGPORT: 5436
+    expose:
+      - 5436
+    ports:
+      - 5436:5436
+
   clickhouse:
     image: "clickhouse/clickhouse-server"
     ports:
@@ -16,6 +28,12 @@ services:
       nats:
     ports:
       - 4222:4222
+
+  app:
+    build: .
+    container_name: "app"
+    ports:
+      - 8090:8090
 
 networks:
   nats:

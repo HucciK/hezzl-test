@@ -7,26 +7,26 @@
   "postgres": {
     "username": "postgres",
     "password": "12345",
-    "host": "localhost",
-    "port": 5432,
+    "host": "host.docker.internal",
+    "port": 5436,
     "db_name": "hezzl",
     "sslMode": "disable"
   },
   "clickhouse": {
     "username": "default",
     "password": "",
-    "host": "localhost",
+    "host": "host.docker.internal",
     "port": 8123,
     "db_name": "default"
   },
   "redis": {
-    "addr": "localhost:6379",
+    "addr": "host.docker.internal:6379",
     "password": "",
     "db": 0,
     "ttl": 60
   },
   "nats":{
-    "url": "nats://127.0.0.1:4222"
+    "url": "nats://host.docker.internal:4222"
   },
   "logFilePath": "./"
 }

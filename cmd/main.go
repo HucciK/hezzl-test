@@ -22,6 +22,7 @@ func main() {
 
 	app := app.New(cfg, logger)
 	if err := app.Run(); err != nil {
+		logger.Printf("crictical error: %v", err)
 		panic(err)
 	}
 }
